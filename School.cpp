@@ -102,7 +102,7 @@ void School::changeClass(char* classs) {
 			int choice;
 			cout << "Your choice: ";
 			cin >> choice;
-			char* Change = (char*)malloc(sizeof(char) * 30);
+			char* Change = new char[30];
 			Change[0] = '\0';
 
 			switch (choice) {
@@ -115,6 +115,7 @@ void School::changeClass(char* classs) {
 				cout << "Enter new Head of class (lastname):";
 				cin >> Change;
 				strcpy(dest->getClasss(), Change);
+				break;
 			case 3:
 				cout << "Enter new Average mark:";
 				cin >> Change;
@@ -137,13 +138,13 @@ void School::changeClass(char* classs) {
 				break;
 			default:
 				toChange->clone(dest);
-				free(Change);
+				delete Change;
 				delete dest;
 				return;
 				break;
 			}
 
-			free(Change);
+			delete Change;
 		}
 
 		
@@ -164,7 +165,7 @@ void School::initFromFile(char* file) {
 		fout.close();
 	}
 
-	char* tmp = (char*)malloc(sizeof(char) * 200);
+	char* tmp = new char[200];
 	while (fin.getline(tmp, 199)) {
 
 		char misc[5][30];
@@ -179,7 +180,7 @@ void School::initFromFile(char* file) {
 		}
 
 		Info* info = new Info();
-		
+
 		strcpy(info->getClasss(), misc[0]);
 		strcpy(info->getClasshead(), misc[1]);
 		strcpy(info->getAverageMark(), misc[2]);
@@ -188,12 +189,11 @@ void School::initFromFile(char* file) {
 
 		addClass(info);
 
-		free(tmp);
-		tmp = (char*)malloc(sizeof(char) * 200);
+		delete tmp;
+		tmp = new char[200];
 	}
-	free(tmp);
+	delete tmp;
 	fin.close();
-	
 }
 
 void School::saveToFile(char* file) {

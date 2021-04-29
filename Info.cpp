@@ -3,11 +3,11 @@
 #include "Info.h"
 
 Info::Info() {
-	classs = (char*)malloc(sizeof(char) * 30);
-	classhead = (char*)malloc(sizeof(char) * 30);
-	averageMark = (char*)malloc(sizeof(char) * 30);
-	teacher = (char*)malloc(sizeof(char) * 30);
-	studentsNumber = (char*)malloc(sizeof(char) * 30);
+	char* classs = new char[30];
+	char* classhead = new char[30];
+	char* averageMark = new char[30];
+	char* teacher = new char[30];
+	char* studentsNumber = new char[30];
 	this->classs[0] = '\0';
 	this->classhead[0] = '\0';
 	this->averageMark[0] = '\0';
@@ -18,30 +18,11 @@ Info::Info() {
 
 Info::~Info()
 {
-	free(classs);
-	free(classhead);
-	free(averageMark);
-	free(teacher);
-	free(studentsNumber);
-}
-
-Info::Info(char* classs, char* classhead, char* averageMark, char* teacher, char* studentsNumber) {
-	this->classs = (char*)malloc(sizeof(char) * 30);
-	this->classhead = (char*)malloc(sizeof(char) * 30);
-	this->averageMark = (char*)malloc(sizeof(char) * 30);
-	this->teacher = (char*)malloc(sizeof(char) * 30);
-	this->studentsNumber = (char*)malloc(sizeof(char) * 30);
-	this->classs[0] = '\0';
-	this->classhead[0] = '\0';
-	this->averageMark[0] = '\0';
-	this->teacher[0] = '\0';
-	this->studentsNumber[0] = '\0';
-	pnext = NULL;
-	strcpy(this->classs, classs);
-	strcpy(this->classhead, classhead);
-	strcpy(this->averageMark, averageMark);
-	strcpy(this->teacher, teacher);
-	strcpy(this->studentsNumber, studentsNumber);
+	delete classs;
+	delete classhead;
+	delete averageMark;
+	delete teacher;
+	delete studentsNumber;
 }
 
 char* Info::getClasss() {
@@ -73,7 +54,7 @@ void Info::setNext(Info* info) {
 }
 
 char* Info::toString() {
-	char* str = (char*)malloc(sizeof(char) * 200);
+	char* str = new char[200];
 	str[0] = '\0';
 	strcat(str, classs);
 	strcat(str, " ");
@@ -88,7 +69,7 @@ char* Info::toString() {
 }
 
 char* Info::toSaveString() {
-	char* str = (char*)malloc(sizeof(char) * 200);
+	char* str = new char[200];
 	str[0] = '\0';
 	strcat(str, classs);
 	strcat(str, ":");

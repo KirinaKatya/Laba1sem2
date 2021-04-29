@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 		cout << "Your choice: ";
 		cin >> choice;
 		Info* info;
-		char* tmp = (char*)malloc(sizeof(char) * 30);
+		char* tmp = new char[30];
 
 		switch (choice)
 		{
@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 			else {
 				cout << info->toString() << endl << endl;
 			}
-			free(tmp);
+			delete tmp;
 			break;
 		case 3:
 			cout<<"Enter Classhead's lastname: ";
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 			else {
 				cout << info->toString() << endl << endl;
 			}
-			free(tmp);
+			delete tmp;
 			break;
 		case 4:
 			cout << "Teacher's lastame: ";
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
 			else {
 				cout << info->toString() << endl << endl;
 			}
-			free(tmp);
+			delete tmp;
 			break;
 		case 5:
 			school->printAllClasses();

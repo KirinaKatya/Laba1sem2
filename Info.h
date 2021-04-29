@@ -16,7 +16,6 @@ private:
 public:
 	Info();
 	~Info();
-	Info(char* classs, char* classhead, char* averageMark, char* teacher, char* studentsNumber);
 	char* toString();
 	char* toSaveString();
 
