@@ -103,3 +103,11 @@ void Info::clone(Info* source) {
 	strcpy(this->teacher, source->getTeacher());
 	strcpy(this->studentsNumber, source->getStudentsNumber());
 }
+
+ostream& operator<<(ostream& out, Info* info) {
+	return (out<<"("<<info->getClasss()<<","<<info->getClasshead()<<","<<info->getAverageMark()<<","<<info->getTeacher()<<","<<info->getStudentsNumber()<<")");
+}
+
+istream& operator>>(istream& in, Info* info) {
+        return(in>>info->getClasss()>>info->getClasshead()>>info->getAverageMark()>>info->getTeacher()>>info->getStudentsNumber() );
+}

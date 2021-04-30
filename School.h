@@ -21,28 +21,6 @@ public:
 	Info* findByClasshead(char* classhead);
 	Info* findByTeacher(char* teacher);
 
-	char* getClasss() {
-		return getClasss();
-	}
-	char* getClasshead() {
-                return getClasshead();
-        }
-	char* getAverageMark() {
-                return getAverageMark();
-        }
-	char* getTeacher() {
-                return getTeacher();
-        }
-	char* getStudentsNumber() {
-                return getStudentsNumber();
-        }
-
 };
 
-ostream& operator<<(ostream& out, Info* info) {
-	return (out<<"("<<info.getClasss","<<info.getClasshead<<","<<info.getAverageMark<<","<<info.getTeacher<<","<<info.getStudentsNumber<<")");
-}
 
-istream& operator>>(istream& in, Info* info) {
-        return(in>>info.getClasss>>info.getClasshead>>info.getAverageMark>>info.getTeacher>>info.getStudentsNumber);
-}

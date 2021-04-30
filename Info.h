@@ -29,4 +29,10 @@ public:
 	void setNext(Info* info);
 	void fillInfo();
 	void clone(Info* source);
+
 };
+
+ostream& operator<<(ostream& out, Info* info);
+istream& operator>>(istream& in, Info* info);
+
+
