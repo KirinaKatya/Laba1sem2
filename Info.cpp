@@ -3,17 +3,23 @@
 #include "Info.h"
 
 Info::Info() {
-	char* classs = new char[30];
-	char* classhead = new char[30];
-	char* averageMark = new char[30];
-	char* teacher = new char[30];
-	char* studentsNumber = new char[30];
-	this->classs[0] = '\0';
-	this->classhead[0] = '\0';
-	this->averageMark[0] = '\0';
-	this->teacher[0] = '\0';
-	this->studentsNumber[0] = '\0';
-	pnext = NULL;
+    char* classs = new char[30];
+    char* classhead = new char[30];
+    char* averageMark = new char[30];
+    char* teacher = new char[30];
+    char* studentsNumber = new char[30];
+    
+    strcpy(classs, "");
+    strcpy(classhead, "");
+    strcpy(averageMark, "");
+    strcpy(teacher, "");
+    strcpy(studentsNumber, "");
+    this->classs = classs;
+    this->classhead = classhead;
+    this->averageMark = averageMark;
+    this->teacher = teacher;
+    this->studentsNumber = studentsNumber;
+    pnext = NULL;
 }
 
 Info::~Info()
